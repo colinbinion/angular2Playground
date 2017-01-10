@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//unpkg.com/core-js/client/shim.min.js"></script>
+<!--   zone.js library powers the change-detection mechanism -->
+  <script src="//unpkg.com/zone.js@0.6.21"></script>
+<!--   typescript transpiles source code to JS in the browser -->
+  <script src="//unpkg.com/typescript@2.0.0"></script>
+<!-- systemJS library dynamically loads the app code into the browser. configures systemJS loader for loading and transpiling TS code -->
+  <script src="//unpkg.com/systemjs@0.19.37/dist/system.src.js"></script>
+<!-- maps the names of angular2 modules to their CDN locations -->
+  <script>
+    System.config({
+      transpiler: 'typescript',
+      typescriptOptions: {emitDecoratorMetadata: true},
+      map: {
+        'rxjs': 'https://unpkg.com/rxjs@5.0.0-beta.12',
+        '@angular/core'                    : 'https://unpkg.com/@angular/core@2.0.0',
+        '@angular/common'                  : 'https://unpkg.com/@angular/common@2.0.0',
+        '@angular/compiler'                : 'https://unpkg.com/@angular/compiler@2.0.0',
+        '@angular/platform-browser'        : 'https://unpkg.com/@angular/platform-browser@2.0.0',
+        '@angular/platform-browser-dynamic': 'https://unpkg.com/@angular/platform-browser-dynamic@2.0.0'
+      },
+// specifies main script for each angular module
+      packages: {
+        '@angular/core'                    : {main: 'index.js'},
+        '@angular/common'                  : {main: 'index.js'},
+        '@angular/compiler'                : {main: 'index.js'},
+        '@angular/platform-browser'        : {main: 'index.js'},
+        '@angular/platform-browser-dynamic': {main: 'index.js'}
+      }
+    });
+    // instructs systemJS to load the main module from main.ts
+    System.import('main.ts');
+  </script>
+</head>
+<body>
+<!--   custom HTML element represents component that's implemented in main.js
+ -->
+  <hello-world></hello-world>
+</body>
+</html>
