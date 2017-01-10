@@ -18,15 +18,18 @@ class HelloWorldComponent {
 
 // inside constructor initialize the name property of the value angular2 bound to the template
   constructor() {
-    this.name = 'Angular';
+    this.name = 'Angular 2';
   }
 }
 
 // Module
 // declares content of module
 @NgModule({
+  // every browser app must import BrowserModule and can import other moduleslike FormsModule if needed
   imports:      [ BrowserModule ],
+  // declares that the HelloWorldComponent blengs to the AppModule. each module menber must be listed here
   declarations: [ HelloWorldComponent ],
+  // during app launch, the module renders the root component that's assigned to the boostrap property of @NgModule
   bootstrap:    [ HelloWorldComponent ]
 })
 // declares class representing module
