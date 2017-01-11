@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//npmcdn.com/es6-promise@3.0.2/dist/es6-promise.js"></script>
+  <script src="//npmcdn.com/traceur@0.0.105/bin/traceur.js"></script>
+  <script src="//npmcdn.com/systemjs@0.19.27/dist/system.src.js"></script>
+<!-- The es6 Promise.all() method returns a Promise object that resolves/rejects when all iterable arguments are completed -->
+  <script>
+    Promise.all([ // <1>
+      // here is the relative path to the file es6module.js that uses the es6 module syntax
+      System.import('./es6module.js'), // <2>
+      // load es5module.js similar to the es6module.js, except this time systemjs uses commonjs format
+      System.import('./es5module.js') // <3>
+      // do not use fat arrow functon here bc the index.html file itself isn't processed by systemjs, so the code wouldn't be transpiled and wouldn't work in all browsers
+    ]).then(function (modules) { // <4>
+      // after Promises.all() are loaded they are given to the then() method as modules array
+      var moduleNames = modules // <5>
+      // this map() method invokes the function that transforms the result by extracting the name property exported from each module
+        .map(function (m) { return m.name; }) // <6>
+        // the method join() combines all module names into a comma-seperated string
+        .join(', '); // <7>
+
+      console.log('The following modules are loaded: ' + moduleNames);
+    });
+  </script>
+</head>
+<body></body>
+</html>
