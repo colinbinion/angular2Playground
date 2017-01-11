@@ -1,0 +1,11 @@
+{
+  "name": "systemjs-demo",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
