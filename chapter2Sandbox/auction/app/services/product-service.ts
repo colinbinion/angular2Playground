@@ -18,15 +18,15 @@ export class ProductService {
 var products = [
   {
     "id": 0,
-    "title": " 1.) Your Mum!",
+    "title": "First Product",
     "price": 24.99,
-    "rating": 5.0,
+    "rating": 4.3,
     "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "categories": ["electronics", "hardware"]
   },
   {
     "id": 1,
-    "title": "2.) Unicycle: no seat",
+    "title": "Second Product",
     "price": 64.99,
     "rating": 3.5,
     "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
